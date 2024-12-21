@@ -21,13 +21,9 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-      <div class="container">
-        <%= link_to "MyTodoApp", root_path, class: "navbar-brand" %>
-      </div>
-    </nav>
-
+     <%= render "lists/navbar" %>
     <div class="container">
+      <%= render "flash"  %>
       <%= yield %>
     </div>
   </body>

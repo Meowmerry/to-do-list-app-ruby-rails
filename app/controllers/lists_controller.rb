@@ -3,6 +3,7 @@ class ListsController < ApplicationController
 
   # GET /lists or /lists.json
   def index
+    @list = List.new
     @lists = List.all
   end
 
@@ -14,6 +15,7 @@ class ListsController < ApplicationController
   def new
     @list = List.new
   end
+
 
   # GET /lists/1/edit
   def edit
@@ -57,7 +59,16 @@ class ListsController < ApplicationController
     end
   end
 
+  # Toggle_completed
+  def toggle_completed
+    @list.update(completed: !@list.completed)
+
+    respond_to do |format|
+      format.js
+    end
+  end
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_list
       @list = List.find(params.expect(:id))

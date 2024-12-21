@@ -1,0 +1,46 @@
+<div class="card mt-5">
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped mb-0 text-center">
+        <thead class="table-dark">
+          <tr>
+            <th class="col">Number</th>
+            <th class="col">Description</th>
+            <th class="col">Status</th>
+            <th class="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lists.each_with_index do |list, index| %>
+            <tr>
+              <td><%= index + 1 %></td> <!-- Display index + 1 -->
+              <td><%= list.description %></td>
+              <td>
+                <div class="btn-group">
+                  <div class="form-group mr-1">
+                    <%= form_with model: list, remote: true do |form| %>
+                      <%= form.text_field :description, type: 'hidden' %>
+                      <%= form.checkbox :completed, data: { action: "change->checkbox#toggle" } %>
+                      <%= form.submit list.completed ? "Completed" : "Pending", class: "btn btn-sm btn-light #{list.completed ? 'bg-success text-white' : 'bg-warning'}", style: "padding: 2px 6px; font-size: 0.75rem;" %>
+                    <% end %>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <%= link_to list, class: "btn btn-sm btn-outline-primary" do %>
+                  <i class="bi bi-eye"></i> View
+                <% end %>
+                <%= link_to edit_list_path(list), class: "btn btn-sm btn-outline-secondary" do %>
+                  <i class="bi bi-pencil"></i> Edit
+                <% end %>
+                <%= link_to list, class: "btn btn-sm btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                  <i class="bi bi-trash"></i> Delete
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

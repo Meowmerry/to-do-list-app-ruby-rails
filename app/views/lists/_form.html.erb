@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= form.label :description, style: "display: block; margin-bottom: 6px;" %>
+    <%= form.text_field :description, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :completed, style: "display: block" %>
-    <%= form.checkbox :completed %>
+  <div class="form-group mt-3 mb-3">
+     <%= form.checkbox :completed %>
+     <%= form.label :completed   %>
   </div>
-
   <div>
-    <%= form.submit %>
+    <%= form.submit "Update Todo Item", class: "btn btn-light" %>
   </div>
 <% end %>

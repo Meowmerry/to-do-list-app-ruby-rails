@@ -1,0 +1,34 @@
+<%= form_with(model: list, id: "todo_form", local: true) do |form| %>
+
+
+  <div class="d-flex justify-content-center align-items-center" style="padding-right: 1rem">
+    <%= form.text_field :description, class: "form-control mr-sm-2", placeholder: "Add Todo Item", aria: { label: "Add Todo Item" }, id: "description_input" %>
+    
+    <%= button_tag(type: 'submit', class: "btn btn-outline-secondary my-2 my-sm-0", style: "height: 40px; width: 100%; margin-left: 0.5rem; color: #fff") do %>
+      <i class="bi bi-plus-lg"></i> Add Todo Item
+    <% end %>
+  </div>
+    <div style="color: red" id="error_message" hidden>
+    <p>The description cannot be empty.</p>
+  </div>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("todo_form");
+    const input = document.getElementById("description_input");
+    const errorMessage = document.getElementById("error_message");
+
+    form.addEventListener("submit", (event) => {
+      // Check if the input is empty
+      if (input.value.trim() === "") {
+        event.preventDefault(); // Prevent form submission
+        errorMessage.hidden = false; // Show error message
+        input.classList.add("is-invalid"); // Optional: add Bootstrap styling
+      } else {
+        errorMessage.hidden = true; // Hide error message
+        input.classList.remove("is-invalid"); // Remove error styling
+      }
+    });
+  });
+</script>

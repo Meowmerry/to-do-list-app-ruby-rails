@@ -1,12 +1,14 @@
 <% content_for :title, "Editing list" %>
 
-<h1>Editing Todo Item</h1>
-
-<%= render "form", list: @list %>
-
-<br>
-
-<div>
-  <%= link_to "Show this list", @list %> |
-  <%= link_to "Back to lists", lists_path %>
+<div class="d-flex justify-content-center align-items-center">
+  <div>
+<div class="card" style="width: 18rem;  margin-top: 2rem;">
+  <div class="card-body">
+    <h1 class="card-title">Edit Todo Item</h1>
+     <%= render "form", list: @list %>
+  </div>
 </div>
+</div>
+
+
+

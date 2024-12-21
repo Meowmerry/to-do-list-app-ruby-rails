@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :lists
   root "lists#index"
+
+  delete "home/trash_em"
+  delete "home/trash_em_all"
+  # delete "home/trash_em", to: "home#trash_em", as: :home_trash_em
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

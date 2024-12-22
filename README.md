@@ -12,7 +12,7 @@ Ozone is a Ruby on Rails application.
 1. Clone the repository:
     ```sh
     git clone <repository-url>
-    cd ozone
+    cd rails-todoapp
     ```
 
 2. Install dependencies:

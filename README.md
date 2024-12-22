@@ -1,6 +1,8 @@
 # Todo List
 
-Ozone is a Ruby on Rails application.
+Todo List is a Ruby on Rails application.
+![Screenshot 2024-12-22 at 5 03 49 PM](https://github.com/user-attachments/assets/39b76b34-bc6f-4356-9f5e-ed5e519daad3)
+
 
 ## Requirements
 

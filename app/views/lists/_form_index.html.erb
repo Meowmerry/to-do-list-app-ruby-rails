@@ -1,6 +1,4 @@
 <%= form_with(model: list, id: "todo_form", local: true) do |form| %>
-
-
   <div class="d-flex justify-content-center align-items-center" style="padding-right: 1rem">
     <%= form.text_field :description, class: "form-control mr-sm-2", placeholder: "Add Todo Item", aria: { label: "Add Todo Item" }, id: "description_input" %>
     
